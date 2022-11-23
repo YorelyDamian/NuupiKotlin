@@ -3,7 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/app_bar_main.xml" value="0.22" />
         <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/content_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_buscador.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_caramelo.xml" value="0.18" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_carrito.xml" value="0.15" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_cerrarsesion.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_compras.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_contacto.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_cuenta.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_datoscuenta.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_disenio.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_domicilio.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_gallery.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_guia.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_miscompras.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_notificaciones.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_nuevo_password.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_paleta.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_pedido.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_producto.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_registro.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/layout/nav_header_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/Yorely Damian/AndroidStudioProjects/NuupiKotlin/app/src/main/res/menu/main.xml" value="0.1" />
       </map>
     </option>
   </component>

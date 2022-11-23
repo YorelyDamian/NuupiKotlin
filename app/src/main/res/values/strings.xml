@@ -7,7 +7,123 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <!--TEXTO DE LA BARRA DE NAVEGACION-->
+    <string name="menu_home">Inicio</string>
+    <string name="menu_cuenta">Mi cuenta</string>
+    <string name="menu_buscador">Buscar</string>
+    <string name="menu_compras">Mis compras</string>
+    <string name="menu_notificaciones">Notificicaciones </string>
+    <string name="menu_cerrar">Cerrar sesión</string>
+    <string name="menu_iniciarSesion">Iniciar sesión</string>
+
+    <!--PARTE DE HOME-->
+    <string name="barra_contacto">Contacto</string>
+    <string name="barra_Producto">Producto</string>
+    <string name="barra_guiaDiseño">Guia de Diseño</string>
+    <string name="barra_diseño">Mi diseño</string>
+    <string name="barra_caramelo">Caramelo</string>
+    <string name="barra_paleta">Paleta</string>
+
+    <!--Texto de la vista contacto-->
+    <string name="msj_facebook">Nuupi</string>
+    <string name="msj_instagram">nuupimx</string>
+    <string name="msj_tiktok">nuupimx</string>
+    <string name="msj_gmail">info.nuupi@gmail.com</string>
+    <string name="msj_telefono">5532376425</string>
+
+    <!--Registrate-->
+    <string name="datoNombre">NOMBRE(S)</string>
+    <string name="datoApellidoP">APELLIDO PATERNO</string>
+    <string name="datoApellidoM">APELLIDO MATERNO</string>
+    <string name="datoTelefono">NÚMERO DE TELÉFONO</string>
+    <string name="datoCorreo">CORREO ELECTRONICO</string>
+    <string name="datoContraseña">CONTRASEÑA</string>
+    <string name="datoConfirmarC">CONFIRMAR CONTRASEÑA</string>
+    <string name="datoFecha">FECHA DE NACIMIENTO</string>
+    <string name="datoAceptar">ACEPTAR</string>
+
+    <!--Nueva contraseña-->
+    <string name="datoEmail">EMAIL</string>
+    <string name="datoNuevaC">NUEVA CONTRASEÑA</string>
+
+    <!--Registro de Domicilio-->
+    <string name="datoEstado">ESTADO</string>
+    <string name="datoMunicipio">MUNICIPIO</string>
+    <string name="datoColonia">COLONIA</string>
+    <string name="datoCodigoP">CODIGO POSTAL</string>
+    <string name="datoCallePrincipal">CALLE PRINCIPAL</string>
+    <string name="datoNumeroE">NÚMERO EXTERIOR</string>
+    <string name="datoCalleuno">CALLE 1</string>
+    <string name="datoCalledos">CALLE 2</string>
+    <string name="datoReferencias">REFERENCIAS</string>
+    <string name="datoGuardar">GUARDAR</string>
+
+    <!--Registro de Domicilio-->
+    <string name="sp_Eleccion">Elegir modelo</string>
+    <string name="sp_xv">Quince años</string>
+    <string name="sp_bautizo">Bautizos</string>
+    <string name="sp_boda">Boda</string>
+    <string name="sp_confirmacion">Confirmación</string>
+    <string name="sp_comunion">Comunión</string>
+    <string name="sp_navidad">Navidad</string>
+    <string name="sp_mama">Dia de las madres</string>
+    <string name="sp_amor">14 de Febrero</string>
+
+    <!--Items Modelo-->
+    <string-array name="modelo">
+        <item>MODELO</item>
+        <item>XV</item>
+        <item>BODA</item>
+        <item>BAUTIZO</item>
+        <item>PRIMERA COMUNIÓN</item>
+        <item>CONFIRMACIÓN</item>
+        <item>DÍA DE LAS MADRES</item>
+        <item>NAVIDAD</item>
+        <item>14 DE FEBRERO</item>
+    </string-array>
+
+    <string-array name="sabor">
+        <item>SABOR</item>
+        <item>GROSELLA</item>
+        <item>CANELA</item>
+        <item>NARANJA</item>
+        <item>ROMPOPE</item>
+        <item>GUAYABA</item>
+        <item>MANZANA</item>
+        <item>DURAZNO</item>
+        <item>CEREZA</item>
+        <item>PIÑA</item>
+        <item>FRESA</item>
+        <item>PLATANO</item>
+        <item>FRAMBUESA</item>
+        <item>COCO</item>
+        <item>NATA</item>
+        <item>CHOCOLATE</item>
+        <item>NUEZ</item>
+        <item>PISTACHE</item>
+        <item>MENTA</item>
+        <item>PITAHAYA</item>
+        <item>UVA</item>
+        <item>TAMARINDO</item>
+        <item>TUTI FRUTI</item>
+        <item>PISTACHE</item>
+    </string-array>
+
+    <string-array name="color">
+        <item>COLOR</item>
+        <item>ROJO</item>
+        <item>BLANCO</item>
+        <item>AMARILLO</item>
+        <item>AZUL</item>
+        <item>VERDE</item>
+        <item>ROSA</item>
+        <item>NEGRO</item>
+        <item>CAFE</item>
+        <item>VERDE</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

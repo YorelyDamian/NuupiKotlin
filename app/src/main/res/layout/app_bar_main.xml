@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.NuupiKotlin.AppBarOverlay">
@@ -15,20 +16,49 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.NuupiKotlin.PopupOverlay" />
+            android:background="@color/red"
+            app:popupTheme="@style/Theme.NuupiKotlin.PopupOverlay" >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBuscador"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:startIconDrawable="@drawable/lupam">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtBuscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Buscar en Nuupi"
+                    android:fontFamily="@font/comfortaabold"
+                    android:textColorHint="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:saveEnabled="false">
+
+                <ImageButton
+                    android:id="@+id/carrito_compras"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:src="@drawable/carrito"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,18 +5,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
-
-    <TextView
-        android:id="@+id/text_home"
+    
+    <!--Centro-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logoinicial" />
+    </LinearLayout>
+
+    <!--BotonesCentrales-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.707">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Producto"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/caramelo"
+            android:fontFamily="@font/comfortaabold"
+            android:hint="producto"
+            android:text="Producto"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Midisenio"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/dibujo"
+            android:fontFamily="@font/comfortaabold"
+            android:hint="diseño"
+            android:text="Mi Diseño"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Contacto"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/contacto"
+            android:fontFamily="@font/comfortaabold"
+            android:hint="contacto"
+            android:text="Contactanos"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Guia"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/guia"
+            android:fontFamily="@font/comfortaabold"
+            android:hint="guia"
+            android:text="Guia de Diseño"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="1.0"></LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

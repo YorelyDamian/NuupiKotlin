@@ -5,21 +5,176 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+    <!--Home-->
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.nuupikotlin.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_producto"
+            app:destination="@id/nav_Producto"
+            app:popUpTo="@id/nav_home"/>
+        <action
+            android:id="@+id/action_nav_home_to_nav_disenio"
+            app:destination="@id/nav_Disenio"
+            app:popUpTo="@id/nav_home"/>
+        <action
+            android:id="@+id/action_nav_home_to_nav_contacto"
+            app:destination="@id/nav_contacto"
+            app:popUpTo="@id/nav_home"/>
+        <action
+            android:id="@+id/action_nav_home_to_nav_guia"
+            app:destination="@id/nav_Guia"
+            app:popUpTo="@id/nav_home"/>
+    </fragment>
+
+    <!--Cuenta-->
+    <fragment
+        android:id="@+id/nav_cuenta"
+        android:name="com.example.nuupikotlin.ui.cuenta.CuentaFragment"
+        android:label="@string/menu_cuenta"
+        tools:layout="@layout/fragment_cuenta" >
+        <action
+            android:id="@+id/action_nav_cuenta_to_nav_iniciarsesion"
+            app:destination="@id/nav_iniciarsesion"
+            app:popUpTo="@id/nav_cuenta"/>
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.nuupikotlin.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_buscador"
+        android:name="com.example.nuupikotlin.ui.buscador.BuscadorFragment"
+        android:label="@string/menu_buscador"
+        tools:layout="@layout/fragment_buscador" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.nuupikotlin.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_compras"
+        android:name="com.example.nuupikotlin.ui.compras.ComprasFragment"
+        android:label="@string/menu_compras"
+        tools:layout="@layout/fragment_compras" >
+        <action
+            android:id="@+id/action_nav_compras_to_nav_Producto"
+            app:destination="@id/nav_Producto"
+            app:popUpTo="@id/nav_compras"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notificaciones"
+        android:name="com.example.nuupikotlin.ui.notificaciones.NotificacionesFragment"
+        android:label="@string/menu_notificaciones"
+        tools:layout="@layout/fragment_notificaciones" />
+
+    <fragment
+        android:id="@+id/nav_iniciarsesion"
+        android:name="com.example.nuupikotlin.ui.iniciarsesion.IniciarSesionFragment"
+        android:label="@string/menu_iniciarSesion"
+        tools:layout="@layout/fragment_iniciar_sesion" >
+        <action
+            android:id="@+id/action_nav_iniciarsesion_to_nav_Registro"
+            app:destination="@id/nav_Registro"
+            app:popUpTo="@id/nav_iniciarsesion"/>
+        <action
+            android:id="@+id/action_nav_iniciarsesion_to_nav_Contrasenia"
+            app:destination="@id/nav_Contrasenia"
+            app:popUpTo="@id/nav_iniciarsesion"/>
+    </fragment>
+
+    <!--Fragmentes-->
+    <fragment
+        android:id="@+id/nav_Producto"
+        android:label="@string/barra_Producto"
+        android:name="com.example.nuupikotlin.view.ProductoFragment"
+        tools:layout="@layout/fragment_producto" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_Disenio"
+        android:label="@string/barra_diseño"
+        android:name="com.example.nuupikotlin.view.DisenioFragment"
+        tools:layout="@layout/fragment_disenio" >
+        <action
+            android:id="@+id/action_nav_Disenio_to_nav_Caramelo"
+            android:label="@string/barra_caramelo"
+            app:destination="@id/nav_Caramelo" />
+        <action
+            android:id="@+id/action_nav_Disenio_to_nav_Paleta"
+            app:destination="@id/nav_Paleta" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_contacto"
+        android:label="@string/barra_contacto"
+        android:name="com.example.nuupikotlin.view.ContactoFragment"
+        tools:layout="@layout/fragment_contacto" />
+    <fragment
+        android:id="@+id/nav_Guia"
+        android:label="@string/barra_guiaDiseño"
+        android:name="com.example.nuupikotlin.view.GuiaFragment"
+        tools:layout="@layout/fragment_guia" />
+    <fragment
+        android:id="@+id/nav_Caramelo"
+        android:label="@string/barra_caramelo"
+        android:name="com.example.nuupikotlin.view.CarameloFragment"
+        tools:layout="@layout/fragment_caramelo" >
+        <action
+            android:id="@+id/action_nav_Caramelo_to_nav_Pago"
+            app:destination="@id/nav_Pago" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_Paleta"
+        android:label="@string/barra_paleta"
+        android:name="com.example.nuupikotlin.view.PaletaFragment"
+        tools:layout="@layout/fragment_paleta" >
+        <action
+            android:id="@+id/action_nav_Paleta_to_nav_Pago"
+            app:destination="@id/nav_Pago" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_Registro"
+        android:name="com.example.nuupikotlin.view.RegistroFragment"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/action_nav_Registro_to_nav_Domicilio"
+            app:destination="@id/nav_Domicilio"
+            app:popUpTo="@id/nav_Registro"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_Domicilio"
+        android:name="com.example.nuupikotlin.view.DomicilioFragment"
+        tools:layout="@layout/fragment_domicilio" />
+
+    <fragment
+        android:id="@+id/nav_Contrasenia"
+        android:name="com.example.nuupikotlin.view.NuevoPasswordFragment"
+        tools:layout="@layout/fragment_nuevo_password" />
+
+    <fragment
+        android:id="@+id/nav_misCompras"
+        android:name="com.example.nuupikotlin.view.MisComprasFragment"
+        android:label="@string/menu_compras"
+        tools:layout="@layout/fragment_miscompras" />
+    <fragment
+        android:id="@+id/nav_carrito"
+        android:name="com.example.nuupikotlin.view.CarritoFragment"
+        tools:layout="@layout/fragment_carrito" />
+
+    <fragment
+        android:id="@+id/nav_Pago"
+        android:name="com.example.nuupikotlin.view.PedidoFragment"
+        tools:layout="@layout/fragment_pedido" />
+
+    <fragment
+        android:id="@+id/nav_DatosCuenta"
+        android:name="com.example.nuupikotlin.view.DatosCuentaFragment"
+        tools:layout="@layout/fragment_datoscuenta" >
+        <action
+            android:id="@+id/action_nav_DatosCuenta_to_nav_Contrasenia"
+            app:destination="@id/nav_Contrasenia" />
+        <action
+            android:id="@+id/action_nav_DatosCuenta_to_nav_Domicilio"
+            app:destination="@id/nav_Domicilio" />
+    </fragment>
+
 </navigation>

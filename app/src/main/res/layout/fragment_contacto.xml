@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.ContactoFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="216dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:layout_weight="1"
+            android:src="@drawable/logoredondo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="471dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Facebook"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/facebook"
+            android:fontFamily="@font/comfortaabold"
+            android:text="@string/msj_facebook"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Instagram"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/insta"
+            android:fontFamily="@font/comfortaabold"
+            android:text="@string/msj_instagram"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Tiktok"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/tiktok"
+            android:fontFamily="@font/comfortaabold"
+            android:text="@string/msj_tiktok"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Gmail"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/gmail"
+            android:fontFamily="@font/comfortaabold"
+            android:text="@string/msj_gmail"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_Telefono"
+            android:layout_width="315dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/telefono"
+            android:fontFamily="@font/comfortaabold"
+            android:text="@string/msj_telefono"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
