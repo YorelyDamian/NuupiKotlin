@@ -111,6 +111,7 @@
         android:label="@string/barra_guiaDiseño"
         android:name="com.example.nuupikotlin.view.GuiaFragment"
         tools:layout="@layout/fragment_guia" />
+
     <fragment
         android:id="@+id/nav_Caramelo"
         android:label="@string/barra_caramelo"
@@ -120,6 +121,7 @@
             android:id="@+id/action_nav_Caramelo_to_nav_Pago"
             app:destination="@id/nav_Pago" />
     </fragment>
+    
     <fragment
         android:id="@+id/nav_Paleta"
         android:label="@string/barra_paleta"
@@ -155,10 +157,15 @@
         android:name="com.example.nuupikotlin.view.MisComprasFragment"
         android:label="@string/menu_compras"
         tools:layout="@layout/fragment_miscompras" />
+
     <fragment
         android:id="@+id/nav_carrito"
         android:name="com.example.nuupikotlin.view.CarritoFragment"
-        tools:layout="@layout/fragment_carrito" />
+        tools:layout="@layout/fragment_carrito" >
+        <action
+            android:id="@+id/action_nav_carrito_to_nav_Pago"
+            app:destination="@id/nav_Pago" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_Pago"

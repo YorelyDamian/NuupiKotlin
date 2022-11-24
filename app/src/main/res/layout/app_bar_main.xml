@@ -47,7 +47,7 @@
                 android:saveEnabled="false">
 
                 <ImageButton
-                    android:id="@+id/carrito_compras"
+                    android:id="@+id/btncarrito_compras"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:backgroundTint="#00FFFFFF"

@@ -1,8 +1,12 @@
 package com.example.nuupikotlin
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
+import android.view.View
+import android.widget.ImageButton
+import android.widget.TextView
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,11 +16,19 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nuupikotlin.databinding.ActivityMainBinding
+import com.example.nuupikotlin.databinding.FragmentCarritoBinding
+
+import com.example.nuupikotlin.ui.buscador.BuscadorFragment
+import com.example.nuupikotlin.view.CarritoFragment
 
 class MainActivity : AppCompatActivity() {
 
+    val btnBus = BuscadorFragment()
+    val btnCom = CarritoFragment()
+
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var bindingC: FragmentCarritoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +50,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val txtBuscador : TextView = findViewById(R.id.txtBuscar)
+        val btnCarrito : ImageButton = findViewById(R.id.btncarrito_compras)
+
+        txtBuscador.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.nav_host_fragment_content_main, btnBus)
+                addToBackStack(null)
+                commit()
+            }
+        }
+
+        btnCarrito.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.nav_host_fragment_content_main, btnCom)
+                addToBackStack(null)
+                commit()
+            }
+        }
 
     }
 

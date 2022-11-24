@@ -121,7 +121,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_SeguirComprar"
+        android:id="@+id/btn_SeguirPedido"
         android:layout_width="278dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
