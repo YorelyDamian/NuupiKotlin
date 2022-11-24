@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
 import com.example.nuupikotlin.R
 import com.example.nuupikotlin.databinding.FragmentCarameloBinding
@@ -28,6 +30,25 @@ class CarameloFragment : Fragment() {
         binding.btnComprar.setOnClickListener {
             findNavController().navigate(R.id.action_nav_Caramelo_to_nav_Pago)
         }
+
+        val spModelo : Spinner = view.findViewById(R.id.sp_Modelo)
+        ArrayAdapter.createFromResource(requireContext(), R.array.modelo, android.R.layout.simple_spinner_item).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spModelo.adapter = adapter
+        }
+
+        val spSabor : Spinner = view.findViewById(R.id.sp_Sabor)
+        ArrayAdapter.createFromResource(requireContext(), R.array.sabor, android.R.layout.simple_spinner_item).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spSabor.adapter = adapter
+        }
+
+        val spColor : Spinner = view.findViewById(R.id.sp_Color)
+        ArrayAdapter.createFromResource(requireContext(), R.array.color, android.R.layout.simple_spinner_item).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spColor.adapter = adapter
+        }
+
     }
 
 }
