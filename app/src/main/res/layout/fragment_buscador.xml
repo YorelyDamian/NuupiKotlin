@@ -31,7 +31,9 @@
             <ListView
                 android:id="@+id/lv_busquedas"
                 android:layout_width="387dp"
-                android:layout_height="423dp" />
+                android:layout_height="423dp"
+                android:fontFamily="@font/comfortaabold"
+                android:textColor="@color/black"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="350dp"
             android:layout_height="60dp"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/comfortaabold"
+                android:textColor="@color/black"
                 android:hint="TIPO DE EVENTO"
                 android:textColorHint="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,6 +68,9 @@
                 android:id="@+id/sp_Modelo"
                 android:layout_width="179dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/comfortaabold"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:padding="16sp"/>
@@ -99,6 +104,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="350dp"
             android:layout_height="60dp"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/comfortaabold"
+                android:textColor="@color/black"
                 android:hint="NÚMERO DE PALETAS"
                 android:textColorHint="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,6 +127,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="350dp"
             android:layout_height="60dp"
+            android:background="@color/white"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,8 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/comfortaabold"
-                android:hint="TEXTO EN EL CENTRO"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/black"
+                android:hint="TEXTO EN EL CENTRO" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -155,6 +164,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:fontFamily="@font/comfortaabold"
+            android:textColor="@color/black"
             android:padding="16sp"/>
 
         <Spinner
@@ -163,6 +174,9 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:fontFamily="@font/comfortaabold"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:padding="16sp"/>
     </LinearLayout>
 

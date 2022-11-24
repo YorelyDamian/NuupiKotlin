@@ -42,6 +42,7 @@
                 android:id="@+id/datoNombre"
                 android:layout_width="369dp"
                 android:layout_height="50dp"
+                android:fontFamily="@font/comfortaabold"
                 android:textColor="@color/black"></TextView>
 
             <TextView
