@@ -1,6 +1,7 @@
 package com.example.nuupikotlin.view
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,14 +64,9 @@ class RegistroFragment : Fragment() {
         val cPassword = editTextConPassword?.text.toString()
         val fecha = editTextNacimiento?.text.toString()
 
-        Toast.makeText(activity, "Tu nombre es: $nombre", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Primer Apellido: $apellidoP", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Segundo Apellido: $apellidoM", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Numero de telefono: $telefono", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "El email es: $email", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "El password es: $password", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Confirmar la contraseña: $cPassword", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Fecha de nacimiento: $fecha", Toast.LENGTH_LONG).show()
+        if (validateRegistro(nombre,apellidoP,apellidoM,telefono,email,password,cPassword,fecha)){
+            Toast.makeText(activity, "Datos Guardados exitosamente", Toast.LENGTH_LONG).show()
+        }
 
         Log.d(TAG,"Nombre: $nombre")
         Log.d(TAG,"Primer apellido: $apellidoP")
@@ -80,6 +76,66 @@ class RegistroFragment : Fragment() {
         Log.d(TAG,"Password: $password")
         Log.d(TAG,"Confirmar Contraseña: $cPassword")
         Log.d(TAG,"Fecha de nacimiento: $fecha")
+    }
+
+    fun String.isEmailValid(): Boolean{
+        return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    }
+
+    private fun validateRegistro(
+        nombre: String,
+        apellidoP:String,
+        apellidoM: String,
+        telefono:String,
+        email: String,
+        password:String,
+        cPassword:String,
+        fecha:String
+        ): Boolean{
+
+        if(nombre.isBlank()){
+            Toast.makeText(activity, "Ingresa nombre de usuario", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(apellidoP.isBlank()){
+            Toast.makeText(activity, "Ingresa tu apellido paterno", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(apellidoM.isBlank()){
+            Toast.makeText(activity, "Ingresa tu apellido materno", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(telefono.isBlank()){
+            Toast.makeText(activity, "Ingresa un número telefonico", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(email.isBlank()){
+            Toast.makeText(activity, "Debes ingresar un correo electronico", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(password.isBlank()){
+            Toast.makeText(activity, "Ingresa tu contraseña", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(cPassword.isBlank()){
+            Toast.makeText(activity, "Falta la confirmacion de la contraseña", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if(fecha.isBlank()){
+            Toast.makeText(activity, "Ingresa tu fecha de nacimiento", Toast.LENGTH_LONG).show()
+            return false
+        }
+
+        if (!email.isEmailValid()){
+            return false
+        }
+        if (!password.equals(cPassword)){
+            Toast.makeText(activity, "Tu contraseña no coincide", Toast.LENGTH_LONG).show()
+            return false
+        }
+
+        return true
     }
 
 }

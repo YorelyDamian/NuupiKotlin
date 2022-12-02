@@ -67,15 +67,9 @@ class DomicilioFragment : Fragment() {
         val calleDos = editTextCalleDos?.text.toString()
         val referencias = editTextReferencias?.text.toString()
 
-        Toast.makeText(activity, "Estado: $estado", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Municipio: $municipio", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Colonia: $colonia", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Codigo Postal: $codigoP", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Calle Principal: $callePri", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Numero exterior: $numeroex", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Calle uno: $calleUno", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Calle dos: $calleDos", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "Referencias: $referencias", Toast.LENGTH_LONG).show()
+        if (validateDomicilio(estado,municipio,colonia,codigoP,callePri,numeroex,calleUno,calleDos,referencias)){
+            Toast.makeText(activity, "Datos Guardados exitosamente", Toast.LENGTH_LONG).show()
+        }
 
         Log.d(TAG,"Estado: $estado")
         Log.d(TAG,"Municipio: $municipio")
@@ -86,6 +80,60 @@ class DomicilioFragment : Fragment() {
         Log.d(TAG,"Calle uno: $calleUno")
         Log.d(TAG,"Calle dos: $calleDos")
         Log.d(TAG,"Referencias: $referencias")
+    }
+
+    private fun validateDomicilio(
+        estado: String,
+        municipio:String,
+        colonia: String,
+        codigoP:String,
+        callePri: String,
+        numeroex:String,
+        calleUno:String,
+        calleDos:String,
+        referencias:String
+    ): Boolean {
+
+        if (estado.isBlank()) {
+            Toast.makeText(activity, "Ingresa el estado de donde eres", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (municipio.isBlank()) {
+            Toast.makeText(activity, "Falta ingresar el municipio", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (colonia.isBlank()) {
+            Toast.makeText(activity, "Colonia en la que vives es ?", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (codigoP.isBlank()) {
+            Toast.makeText(activity, "Ingresa el codigo postal", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (callePri.isBlank()) {
+            Toast.makeText(activity, "Ingresa el nombre de la calle principal", Toast.LENGTH_LONG)
+                .show()
+            return false
+        }
+        if (numeroex.isBlank()) {
+            Toast.makeText(activity, "Si no tienes numero exterior coloca S/N", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (calleUno.isBlank()) {
+            Toast.makeText(activity, "Ingresa una calle", Toast.LENGTH_LONG)
+                .show()
+            return false
+        }
+        if (calleDos.isBlank()) {
+            Toast.makeText(activity, "Ingresa una calle", Toast.LENGTH_LONG).show()
+            return false
+        }
+        if (referencias.isBlank()) {
+            Toast.makeText(activity, "Ingresa una referencia", Toast.LENGTH_LONG).show()
+            return false
+        }
+
+    return true
     }
 
 }

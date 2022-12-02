@@ -1,6 +1,7 @@
 package com.example.nuupikotlin.ui.iniciarsesion
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -52,10 +53,32 @@ class IniciarSesionFragment : Fragment() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-        Toast.makeText(activity, "El email es: $email", Toast.LENGTH_LONG).show()
-        Toast.makeText(activity, "El password es: $password", Toast.LENGTH_LONG).show()
+        if (validateLogin(email,password)){
+            Toast.makeText(activity, "Bienvenido", Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(activity, "Datos incorrectos", Toast.LENGTH_LONG).show()
+        }
 
         Log.d("IniciarSesionFragment","El email es: $email")
         Log.d("IniciarSesionFragment","El password es: $password")
     }
+
+    fun String.isEmailValid(): Boolean{
+        return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    }
+
+    private fun validateLogin(email: String, password:String): Boolean{
+        if(email.isBlank()){
+            return false
+        }
+        if (password.isBlank()){
+            return false
+        }
+        if (!email.isEmailValid()){
+            return false
+        }
+        return true
+    }
+
 }
