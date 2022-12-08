@@ -58,7 +58,7 @@ class RegistroFragment : Fragment() {
 
         binding.btnAceptar.setOnClickListener {
             registro()
-            findNavController().navigate(R.id.action_nav_Registro_to_nav_Domicilio)
+            findNavController().navigate(R.id.action_nav_Registro_to_nav_DatosCuenta)
         }
     }
 

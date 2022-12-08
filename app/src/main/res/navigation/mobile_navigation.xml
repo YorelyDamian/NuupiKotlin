@@ -98,6 +98,7 @@
             app:destination="@id/nav_Caramelo" />
         <action
             android:id="@+id/action_nav_Disenio_to_nav_Paleta"
+            android:label="@string/barra_paleta"
             app:destination="@id/nav_Paleta" />
     </fragment>
 
@@ -137,9 +138,8 @@
         android:name="com.example.nuupikotlin.view.RegistroFragment"
         tools:layout="@layout/fragment_registro" >
         <action
-            android:id="@+id/action_nav_Registro_to_nav_Domicilio"
-            app:destination="@id/nav_Domicilio"
-            app:popUpTo="@id/nav_Registro"/>
+            android:id="@+id/action_nav_Registro_to_nav_DatosCuenta"
+            app:destination="@id/nav_DatosCuenta" />
     </fragment>
 
     <fragment
