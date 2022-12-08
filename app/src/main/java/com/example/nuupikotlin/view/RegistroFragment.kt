@@ -58,7 +58,7 @@ class RegistroFragment : Fragment() {
 
         binding.btnAceptar.setOnClickListener {
             registro()
-            //findNavController().navigate(R.id.action_nav_Registro_to_nav_Domicilio)
+            findNavController().navigate(R.id.action_nav_Registro_to_nav_Domicilio)
         }
     }
 
@@ -87,7 +87,7 @@ class RegistroFragment : Fragment() {
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
                     Toast.makeText(activity,response.message(), Toast.LENGTH_LONG).show()
                     Log.d(TAG, "Response:${response}")
-                    Log.d(TAG,"Body:${response.body()}")
+                    //Log.d(TAG,"Body:${response.body()}")
                 }
 
                 override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {

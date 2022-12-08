@@ -8,6 +8,6 @@ import retrofit2.http.POST
 
 interface UsersRoutes {
 
-    @POST("/CreateUsuario")
-    fun register(@Body user:User): Call<ResponseHttp>
+    @POST("CreateUsuario")
+    fun register(@Body user:User):Call<ResponseHttp>
 }

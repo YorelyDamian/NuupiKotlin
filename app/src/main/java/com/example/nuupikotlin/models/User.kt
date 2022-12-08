@@ -10,10 +10,9 @@ class User (
     @SerializedName("psPemailUsu") val psPemailUsu: String,
     @SerializedName("pscontraUsuario") val pscontraUsuario: String,
     @SerializedName("psconfirmaContraUsuario") val psconfirmaContraUsuario: String,
-    @SerializedName("psfechaNacimiento") val psfechaNacimiento: String,
+    @SerializedName("psfechaNacimiento") val psfechaNacimiento: String
         ){
-
     override fun toString(): String {
-        return "User(nombreUsuario='$psnombreUsuario', apellido1Usuario='$psapellido1Usuario', apellido2Usuario='$psapellido2Usuario', telefonoUsuario=$pstelefonoUsuario, emailUsuario='$psPemailUsu', contraUsuario='$pscontraUsuario', confirmarContraUsuario='$psconfirmaContraUsuario', fechaNacimiento='$psfechaNacimiento')"
+        return "User(psnombreUsuario='$psnombreUsuario', psapellido1Usuario='$psapellido1Usuario', psapellido2Usuario='$psapellido2Usuario', pstelefonoUsuario='$pstelefonoUsuario', psPemailUsu='$psPemailUsu', pscontraUsuario='$pscontraUsuario', psconfirmaContraUsuario='$psconfirmaContraUsuario', psfechaNacimiento='$psfechaNacimiento')"
     }
 }
