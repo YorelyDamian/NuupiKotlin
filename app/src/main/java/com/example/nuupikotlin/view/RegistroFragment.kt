@@ -13,6 +13,12 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.nuupikotlin.R
 import com.example.nuupikotlin.databinding.FragmentRegistroBinding
+import com.example.nuupikotlin.models.ResponseHttp
+import com.example.nuupikotlin.models.User
+import com.example.nuupikotlin.providers.UsersProvider
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegistroFragment : Fragment() {
 
@@ -28,6 +34,8 @@ class RegistroFragment : Fragment() {
     var editTextPassword: EditText?= null
     var editTextConPassword: EditText?= null
     var editTextNacimiento: EditText?= null
+
+    var usersProvider = UsersProvider()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -50,7 +58,7 @@ class RegistroFragment : Fragment() {
 
         binding.btnAceptar.setOnClickListener {
             registro()
-            findNavController().navigate(R.id.action_nav_Registro_to_nav_Domicilio)
+            //findNavController().navigate(R.id.action_nav_Registro_to_nav_Domicilio)
         }
     }
 
@@ -65,17 +73,29 @@ class RegistroFragment : Fragment() {
         val fecha = editTextNacimiento?.text.toString()
 
         if (validateRegistro(nombre,apellidoP,apellidoM,telefono,email,password,cPassword,fecha)){
-            Toast.makeText(activity, "Datos Guardados exitosamente", Toast.LENGTH_LONG).show()
-        }
+            val user = User(
+                psnombreUsuario = nombre,
+                psapellido1Usuario = apellidoP,
+                psapellido2Usuario = apellidoM,
+                pstelefonoUsuario = telefono,
+                psPemailUsu = email,
+                pscontraUsuario = password,
+                psconfirmaContraUsuario = cPassword,
+                psfechaNacimiento = fecha
+            )
+            usersProvider.register(user)?.enqueue(object: Callback<ResponseHttp>{
+                override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
+                    Toast.makeText(activity,response.message(), Toast.LENGTH_LONG).show()
+                    Log.d(TAG, "Response:${response}")
+                    Log.d(TAG,"Body:${response.body()}")
+                }
 
-        Log.d(TAG,"Nombre: $nombre")
-        Log.d(TAG,"Primer apellido: $apellidoP")
-        Log.d(TAG,"Segundo apellido: $apellidoM")
-        Log.d(TAG,"Telefono: $telefono")
-        Log.d(TAG,"Correo: $email")
-        Log.d(TAG,"Password: $password")
-        Log.d(TAG,"Confirmar Contraseña: $cPassword")
-        Log.d(TAG,"Fecha de nacimiento: $fecha")
+                override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
+                    Log.d(TAG, "SE PRODUJO UN ERROR DE REGISTRO ${t.message}")
+                    Toast.makeText(activity,"SE PRODUJO UN ERROR DE REGISTRO ${t.message}", Toast.LENGTH_LONG).show()
+                }
+            })
+        }
     }
 
     fun String.isEmailValid(): Boolean{
