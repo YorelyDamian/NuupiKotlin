@@ -221,7 +221,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/comfortaabold"
-                    android:hint="FECHA DE NACIMIENTO"
+                    android:hint="FECHA DE NACIMIENTO (año-mes-día)"
                     android:textColorHint="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
