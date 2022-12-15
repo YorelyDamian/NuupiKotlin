@@ -3,6 +3,7 @@ package com.example.nuupikotlin.view
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.nuupikotlin.DatePickerFragment
 import com.example.nuupikotlin.R
 import com.example.nuupikotlin.databinding.FragmentRegistroBinding
 import com.example.nuupikotlin.models.ResponseHttp
@@ -60,7 +62,22 @@ class RegistroFragment : Fragment() {
             registro()
             findNavController().navigate(R.id.action_nav_Registro_to_nav_DatosCuenta)
         }
+        editTextNacimiento?.setOnClickListener{
+            showDatePickerDialog()
+        }
     }
+
+    //Para la fecha de nacimiento
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(parentFragmentManager,"datePicker")
+    }
+
+    fun onDateSelected(day:Int,month:Int,year:Int){
+        editTextNacimiento?.setText("$year-$month-$day")
+    }
+//Fin de la fecha de nacimiento
 
     private fun registro(){
         val nombre = editTextNombre?.text.toString()
@@ -99,7 +116,7 @@ class RegistroFragment : Fragment() {
     }
 
     fun String.isEmailValid(): Boolean{
-        return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+        return !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
     }
 
