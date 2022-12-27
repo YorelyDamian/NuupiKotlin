@@ -1,13 +1,8 @@
 package com.example.nuupikotlin
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.Menu
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nuupikotlin.databinding.ActivityMainBinding
-import com.example.nuupikotlin.databinding.FragmentCarritoBinding
 
 import com.example.nuupikotlin.ui.buscador.BuscadorFragment
 import com.example.nuupikotlin.view.CarritoFragment
