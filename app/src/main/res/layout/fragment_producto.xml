@@ -263,7 +263,7 @@
                     android:textSize="12dp"
                     app:cornerRadius="30dp" />
 
-                <com.google.android.material.button.MaterialButton
+                <!--<com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_muerto"
                     android:layout_width="180dp"
                     android:layout_height="200dp"
@@ -276,7 +276,7 @@
                     android:text="Caramelo de granel AMOR $36mx por frasco"
                     android:textColor="@color/black"
                     android:textSize="12dp"
-                    app:cornerRadius="30dp" />
+                    app:cornerRadius="30dp" />-->
 
             </TableRow>
 
