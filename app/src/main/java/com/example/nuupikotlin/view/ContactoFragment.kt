@@ -66,5 +66,6 @@ class ContactoFragment : Fragment() {
                 ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.CALL_PHONE),123)
             }
         }
+
     }
 }
