@@ -28,6 +28,11 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.bind(view)
 
+        //Boton productos
+        binding.btnProducto.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_nav_producto)
+
+        }
         //Boton diseño
         binding.btnMidisenio.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_nav_disenio)
