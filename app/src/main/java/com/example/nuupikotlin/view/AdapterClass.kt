@@ -10,6 +10,8 @@ import com.example.nuupikotlin.R
 
 class AdapterClass(private val dataList:ArrayList<DataClass>):RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
 
+    var onItemClick: ((DataClass)->Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_layout,parent,false)
         return ViewHolderClass(itemView)
@@ -21,6 +23,11 @@ class AdapterClass(private val dataList:ArrayList<DataClass>):RecyclerView.Adapt
         holder.itemNombreProduto.text = currentItem.dataNombre
         holder.itemDescripcion.text = currentItem.dataDescrip
         holder.itemPrecio.text = currentItem.dataPrecio
+
+        holder.itemView.setOnClickListener{
+            onItemClick?.invoke(currentItem)
+        }
+
     }
 
     override fun getItemCount(): Int {
