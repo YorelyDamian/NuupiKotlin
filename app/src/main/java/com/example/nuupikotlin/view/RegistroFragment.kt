@@ -60,7 +60,7 @@ class RegistroFragment : Fragment() {
 
         binding.btnAceptar.setOnClickListener {
             registro()
-            findNavController().navigate(R.id.action_nav_Registro_to_nav_DatosCuenta)
+            findNavController().navigate(R.id.action_nav_Registro_to_nav_iniciarsesion)
         }
         editTextNacimiento?.setOnClickListener{
             showDatePickerDialog()

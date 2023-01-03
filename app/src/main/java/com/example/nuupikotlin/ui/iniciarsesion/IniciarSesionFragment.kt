@@ -62,25 +62,27 @@ class IniciarSesionFragment : Fragment() {
         if (validateLogin(email,password)){
 
             usersProvider.login(email, password)?.enqueue(object: Callback<ResponseHttp>{
-                override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>){
 
+                override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>){
                     Log.d("IniciarSesionFragment","Response:${response.body()}")
                     if(response.body()?.inSuccess==true){
-                        Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, response.body()?.message, Toast.LENGTH_LONG).show()
                     }
                     else{
-                        Toast.makeText(context,"Los datos son incorrectos",Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity,"Los datos son incorrectos",Toast.LENGTH_LONG).show()
                     }
+
                 }
 
                 override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
                     Log.d("IniciarSesionFragment","Hubo un error ${t.message}")
-                    Toast.makeText(context, "Hubo un error ${t.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity, "Hubo un error ${t.message}", Toast.LENGTH_LONG).show()
                 }
+
             })
 
         }else{
-            Toast.makeText(context, "Datos incorrectos", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Datos incorrectos", Toast.LENGTH_LONG).show()
         }
 
         //Log.d("IniciarSesionFragment","El email es: $email")

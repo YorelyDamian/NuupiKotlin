@@ -77,6 +77,9 @@
             android:id="@+id/action_nav_iniciarsesion_to_nav_Contrasenia"
             app:destination="@id/nav_Contrasenia"
             app:popUpTo="@id/nav_iniciarsesion"/>
+        <action
+            android:id="@+id/action_nav_iniciarsesion_to_nav_DatosCuenta"
+            app:destination="@id/nav_DatosCuenta" />
     </fragment>
 
     <!--Fragmentes-->
@@ -138,8 +141,8 @@
         android:name="com.example.nuupikotlin.view.RegistroFragment"
         tools:layout="@layout/fragment_registro" >
         <action
-            android:id="@+id/action_nav_Registro_to_nav_DatosCuenta"
-            app:destination="@id/nav_DatosCuenta" />
+            android:id="@+id/action_nav_Registro_to_nav_iniciarsesion"
+            app:destination="@id/nav_iniciarsesion" />
     </fragment>
 
     <fragment
