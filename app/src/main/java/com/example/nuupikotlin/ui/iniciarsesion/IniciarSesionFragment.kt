@@ -40,9 +40,13 @@ class IniciarSesionFragment : Fragment() {
         editTextPassword = view.findViewById(R.id.txtPassword)
         buttonLogin = view.findViewById(R.id.btnIniciar)
 
-        buttonLogin?.setOnClickListener { login() }
-
         binding = FragmentIniciarSesionBinding.bind(view)
+
+        //Boton Iniciar Sesion
+        buttonLogin?.setOnClickListener {
+            //findNavController().navigate(R.id.action_nav_iniciarsesion_to_nav_DatosCuenta)
+            login()
+        }
 
         //Boton registro usuario
         binding.btnRegistro.setOnClickListener {
@@ -59,30 +63,31 @@ class IniciarSesionFragment : Fragment() {
         val email = editTextEmail?.text.toString()
         val password = editTextPassword?.text.toString()
 
-        if (validateLogin(email,password)){
+        if (isValidForm(email,password)){
 
             usersProvider.login(email, password)?.enqueue(object: Callback<ResponseHttp>{
 
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>){
+
                     Log.d("IniciarSesionFragment","Response:${response.body()}")
-                    if(response.body()?.inSuccess==true){
-                        Toast.makeText(activity, response.body()?.message, Toast.LENGTH_LONG).show()
+                    if(response.body()?.inSuccess == true){
+                        Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
                     }
                     else{
-                        Toast.makeText(activity,"Los datos son incorrectos",Toast.LENGTH_LONG).show()
+                        Toast.makeText(context,"Los datos son incorrectos",Toast.LENGTH_LONG).show()
                     }
 
                 }
 
                 override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
-                    Log.d("IniciarSesionFragment","Hubo un error ${t.message}")
-                    Toast.makeText(activity, "Hubo un error ${t.message}", Toast.LENGTH_LONG).show()
+                    //Log.d("IniciarSesionFragment","Hubo un error ${t.message}")
+                    Toast.makeText(context, "Hubo un error ${t.message}", Toast.LENGTH_LONG).show()
                 }
 
             })
 
         }else{
-            Toast.makeText(activity, "Datos incorrectos", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Ingresa todos los datos", Toast.LENGTH_LONG).show()
         }
 
         //Log.d("IniciarSesionFragment","El email es: $email")
@@ -93,7 +98,7 @@ class IniciarSesionFragment : Fragment() {
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
 
-    private fun validateLogin(email: String, password:String): Boolean{
+    private fun isValidForm(email: String, password:String): Boolean{
         if(email.isBlank()){
             return false
         }

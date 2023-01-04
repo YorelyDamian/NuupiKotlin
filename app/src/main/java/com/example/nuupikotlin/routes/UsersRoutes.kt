@@ -15,6 +15,6 @@ interface UsersRoutes {
 
     @FormUrlEncoded
     @POST("LoginUsuario")
-    fun login(@Field("PemailUsu")email:String, @Field("Pcontra") password:String):Call<ResponseHttp>
+    fun login(@Field("email")email:String, @Field("password") password:String):Call<ResponseHttp>
 
 }
