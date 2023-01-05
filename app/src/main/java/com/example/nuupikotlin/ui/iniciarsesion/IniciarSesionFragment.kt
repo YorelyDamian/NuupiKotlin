@@ -70,6 +70,7 @@ class IniciarSesionFragment : Fragment() {
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>){
 
                     Log.d("IniciarSesionFragment","Response:${response.body()}")
+
                     if(response.body()?.inSuccess == true){
                         Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
                     }

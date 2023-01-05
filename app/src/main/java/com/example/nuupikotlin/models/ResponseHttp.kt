@@ -10,6 +10,6 @@ class ResponseHttp(
     @SerializedName("error") val error: String
 ) {
     override fun toString(): String {
-        return "ResponseHttp(message='$message', inSuccess=$inSuccess, error='$error')"
+        return "ResponseHttp(message='$message', inSuccess=$inSuccess, data=$data, error='$error')"
     }
 }
