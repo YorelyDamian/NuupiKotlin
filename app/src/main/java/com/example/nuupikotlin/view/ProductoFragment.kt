@@ -85,19 +85,20 @@ class ProductoFragment : Fragment() {
         dataList = arrayListOf<DataClass>()
         getData()
 
-        //recyclerView.adapter = myAdapter
+        myAdapter = AdapterClass(dataList)
+        recyclerView.adapter = myAdapter
 
-        //myAdapter.onItemClick={
-        //    val intent = Intent(requireContext(),DetailActivity::class.java)
-        //    intent.putExtra("android",it)
-        //    startActivity(intent)
-        //}
+        myAdapter.onItemClick={
+            val intent = Intent(context,DetailActivity::class.java)
+            intent.putExtra("android",it)
+            startActivity(intent)
+        }
 
     }
 
     private fun getData(){
         for(i in imageList.indices){
-            val dataClass = DataClass(imageList[i],nombreList[i],drecripList[i],precioList[i])
+            val dataClass = DataClass(nombreList[i],imageList[i],drecripList[i],precioList[i])
             dataList.add(dataClass)
         }
         recyclerView.adapter = AdapterClass(dataList)

@@ -19,8 +19,8 @@ class AdapterClass(private val dataList:ArrayList<DataClass>):RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
         val currentItem = dataList[position]
-        holder.itemImage.setImageResource(currentItem.dataImage)
         holder.itemNombreProduto.text = currentItem.dataNombre
+        holder.itemImage.setImageResource(currentItem.dataImage)
         holder.itemDescripcion.text = currentItem.dataDescrip
         holder.itemPrecio.text = currentItem.dataPrecio
 
