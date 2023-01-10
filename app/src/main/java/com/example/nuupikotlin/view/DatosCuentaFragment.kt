@@ -1,21 +1,22 @@
 package com.example.nuupikotlin.view
 
 import android.app.Activity
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.nuupikotlin.R
 import com.example.nuupikotlin.databinding.FragmentDatoscuentaBinding
+import com.example.nuupikotlin.models.User
+import com.example.nuupikotlin.utils.SharedPref
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.gson.Gson
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
 
@@ -24,6 +25,8 @@ class DatosCuentaFragment : Fragment() {
     var circleImageUser: CircleImageView? = null
     private var imageFile: File? = null
     private lateinit var binding: FragmentDatoscuentaBinding
+
+    private val TAG="DatosCuentaFragment"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -47,6 +50,11 @@ class DatosCuentaFragment : Fragment() {
 
         circleImageUser?.setOnClickListener{ selectImage() }
 
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        getUserFromSession()
     }
 
     private val startImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -76,6 +84,18 @@ class DatosCuentaFragment : Fragment() {
         .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
         .createIntent { intent ->
             startImageResult.launch(intent)
+        }
+    }
+
+    //Metodo para guardar datos de inicio de sesion
+    private fun getUserFromSession(){
+        val sharedPref = SharedPref(this as Activity)
+        val gson = Gson()
+
+        if(!sharedPref.getData("user").isNullOrBlank()){
+            //si el usuario existe en sesion
+            val user = gson.fromJson(sharedPref.getData("user"), User::class.java)
+            Log.d(TAG,"Usuario: $user")
         }
     }
 

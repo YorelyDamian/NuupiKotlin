@@ -1,5 +1,7 @@
 package com.example.nuupikotlin.ui.iniciarsesion
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -14,7 +16,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.nuupikotlin.R
 import com.example.nuupikotlin.databinding.FragmentIniciarSesionBinding
 import com.example.nuupikotlin.models.ResponseHttp
+import com.example.nuupikotlin.models.User
 import com.example.nuupikotlin.providers.UsersProvider
+import com.example.nuupikotlin.utils.SharedPref
+import com.example.nuupikotlin.view.DatosCuentaFragment
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,7 +50,6 @@ class IniciarSesionFragment : Fragment() {
 
         //Boton Iniciar Sesion
         buttonLogin?.setOnClickListener {
-            //findNavController().navigate(R.id.action_nav_iniciarsesion_to_nav_DatosCuenta)
             login()
         }
 
@@ -73,6 +78,9 @@ class IniciarSesionFragment : Fragment() {
 
                     if(response.body()?.inSuccess == true){
                         Toast.makeText(context, response.body()?.message, Toast.LENGTH_LONG).show()
+
+                        saveUserInSession(response.body()?.data.toString())//error aqui
+                        gotoProductos()
                     }
                     else{
                         Toast.makeText(context,"Los datos son incorrectos",Toast.LENGTH_LONG).show()
@@ -95,10 +103,29 @@ class IniciarSesionFragment : Fragment() {
         //Log.d("IniciarSesionFragment","El password es: $password")
     }
 
+    //Vista que mostrara despues de iniciar sesion
+    private fun gotoProductos(){
+        val i = Intent(context, DatosCuentaFragment::class.java)
+        startActivity(i)
+    }
+
+    //Metodo para guardar los datos del usuario
+    private fun saveUserInSession(data:String){
+
+        val sharedPref = SharedPref(this as Activity)//error aqui
+        val gson = Gson()
+        val user = gson.fromJson(data, User::class.java)
+
+        sharedPref.save("user", user)
+
+    }
+
+    //Validacion del Email
     fun String.isEmailValid(): Boolean{
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
 
+    //Validar que los campos sean llenados
     private fun isValidForm(email: String, password:String): Boolean{
         if(email.isBlank()){
             return false

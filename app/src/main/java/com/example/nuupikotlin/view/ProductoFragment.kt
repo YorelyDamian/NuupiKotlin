@@ -1,6 +1,5 @@
 package com.example.nuupikotlin.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ class ProductoFragment : Fragment() {
     lateinit var nombreList:Array<String>
     lateinit var drecripList:Array<String>
     lateinit var precioList:Array<String>
-    private lateinit var myAdapter: AdapterClass
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_producto, container, false)
@@ -26,6 +24,7 @@ class ProductoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         imageList = arrayOf(
             R.drawable.amor,
             R.drawable.paleta,
@@ -84,15 +83,6 @@ class ProductoFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         dataList = arrayListOf<DataClass>()
         getData()
-
-        myAdapter = AdapterClass(dataList)
-        recyclerView.adapter = myAdapter
-
-        myAdapter.onItemClick={
-            val intent = Intent(context,DetailActivity::class.java)
-            intent.putExtra("android",it)
-            startActivity(intent)
-        }
 
     }
 

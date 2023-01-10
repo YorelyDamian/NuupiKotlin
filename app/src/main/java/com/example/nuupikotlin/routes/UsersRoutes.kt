@@ -10,11 +10,11 @@ import retrofit2.http.POST
 
 interface UsersRoutes {
 
-    @POST("CreateUsuario")
+    @POST("api/users/create")
     fun register(@Body user:User):Call<ResponseHttp>
 
     @FormUrlEncoded
-    @POST("LoginUsuario")
+    @POST("api/users/login")
     fun login(@Field("email")email:String, @Field("password") password:String):Call<ResponseHttp>
 
 }

@@ -87,31 +87,12 @@
         android:label="@string/barra_Producto"
         android:name="com.example.nuupikotlin.view.ProductoFragment"
         tools:layout="@layout/fragment_producto" >
-        <!--<action
-            android:id="@+id/action_nav_Producto_to_nav_DetailProduc"
-            app:destination="@id/nav_DetailProduc" />-->
-        <action
-            android:id="@+id/action_nav_Producto_to_nav_DetailProducFrag"
-            app:destination="@id/nav_DetailProducFrag" />
-    </fragment>
 
-    <!--<fragment
-        android:id="@+id/nav_DetailProduc"
-        android:label="@string/barra_Producto"
-        android:name="com.example.nuupikotlin.view.DetailActivity"
-        tools:layout="@layout/activity_detail" >
         <action
-            android:id="@+id/action_nav_DetailProduc_to_nav_Pago"
-            app:destination="@id/nav_Pago" />
-    </fragment>-->
-
-    <fragment
-        android:id="@+id/nav_DetailProducFrag"
-        android:label="@string/barra_Producto"
-        android:name="com.example.nuupikotlin.view.DetailFragment"
-        tools:layout="@layout/fragment_detail" >
+            android:id="@+id/action_nav_Producto_to_nav_carrito"
+            app:destination="@id/nav_carrito" />
         <action
-            android:id="@+id/action_nav_DetailProduc_to_nav_Pago"
+            android:id="@+id/action_nav_Producto_to_nav_Pago"
             app:destination="@id/nav_Pago" />
     </fragment>
 
