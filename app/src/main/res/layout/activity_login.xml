@@ -95,7 +95,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659" />
+        app:layout_constraintVertical_bias="0.659"
+        android:onClick="onClick"/>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -118,7 +119,8 @@
             android:textColor="@color/black"
             app:cornerRadius="20dp"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="524dp" />
+            tools:layout_editor_absoluteY="524dp"
+            android:onClick="onClick"/>
     </LinearLayout>
 
     <LinearLayout
@@ -154,7 +156,8 @@
             android:textColor="@color/black"
             app:cornerRadius="20dp"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="524dp" />
+            tools:layout_editor_absoluteY="524dp"
+            android:onClick="onClick"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

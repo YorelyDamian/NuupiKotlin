@@ -9,8 +9,8 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface UsersRoutes {
-
-    @POST("api/users/create")
+    //SE CAMBIO EL CREATE POR ROLES
+    @POST("api/users/roles")
     fun register(@Body user:User):Call<ResponseHttp>
 
     @FormUrlEncoded

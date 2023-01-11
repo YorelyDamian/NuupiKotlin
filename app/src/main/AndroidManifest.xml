@@ -23,9 +23,19 @@
         android:theme="@style/Theme.NuupiKotlin"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity android:name=".activitysLogin.RegistroActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
+
+        <activity android:name=".activitysLogin.ContraseniaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
+
         <activity
-            android:name=".DetailActivity"
-            android:exported="false" />
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -41,7 +51,7 @@
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.NuupiKotlin.NoActionBar"></activity>
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar" />
     </application>
 
 </manifest>

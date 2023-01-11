@@ -1,6 +1,8 @@
 package com.example.nuupikotlin
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
 import com.google.android.material.navigation.NavigationView
@@ -12,14 +14,19 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nuupikotlin.databinding.ActivityMainBinding
-
+import com.example.nuupikotlin.models.User
 import com.example.nuupikotlin.ui.buscador.BuscadorFragment
+import com.example.nuupikotlin.utils.SharedPref
 import com.example.nuupikotlin.view.CarritoFragment
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
     val btnBus = BuscadorFragment()
     val btnCom = CarritoFragment()
+    var sharedPref: SharedPref? = null
+
+    private val TAG="MainActivity"
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -30,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPref = SharedPref(this)
+
         setSupportActionBar(binding.appBarMain.toolbar)
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -39,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_cuenta, R.id.nav_buscador,R.id.nav_compras,R.id.nav_notificaciones,R.id.nav_iniciarsesion
+                R.id.nav_home, R.id.nav_DatosCuenta, R.id.nav_buscador,R.id.nav_compras,R.id.nav_notificaciones
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -64,6 +73,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        getUserFromSession()
+
+    }
+
+    //Metodo para guardar datos de inicio de sesion
+    private fun getUserFromSession(){
+        //val sharedPref = SharedPref(this as Activity)
+        val gson = Gson()
+
+        if(!sharedPref?.getData("user").isNullOrBlank()){
+            //si el usuario existe en sesion
+            val user = gson.fromJson(sharedPref?.getData("user"), User::class.java)
+            Log.d(TAG,"Usuario: $user")
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

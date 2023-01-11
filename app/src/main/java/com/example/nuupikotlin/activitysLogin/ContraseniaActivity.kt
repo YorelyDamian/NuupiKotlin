@@ -1,45 +1,30 @@
-package com.example.nuupikotlin.view
+package com.example.nuupikotlin.activitysLogin
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import com.example.nuupikotlin.R
-import com.example.nuupikotlin.databinding.FragmentIniciarSesionBinding
-import com.example.nuupikotlin.databinding.FragmentNuevoPasswordBinding
-
-class NuevoPasswordFragment : Fragment() {
-
-    private lateinit var binding: FragmentNuevoPasswordBinding
+class ContraseniaActivity : AppCompatActivity() {
 
     var editTextCorreoN: EditText?= null
     var editTextPassword: EditText?= null
     var editTextPasswordNuevo: EditText?= null
     var buttonGuardar: Button?= null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nuevo_password, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_contrasenia)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        editTextCorreoN = view.findViewById(R.id.txtCorreoN)
-        editTextPassword = view.findViewById(R.id.txtPassword)
-        editTextPasswordNuevo = view.findViewById(R.id.txtPasswordNuevo)
-        buttonGuardar = view.findViewById(R.id.btn_Guardar)
+        editTextCorreoN = findViewById(R.id.txtCorreoN)
+        editTextPassword = findViewById(R.id.txtPassword)
+        editTextPasswordNuevo = findViewById(R.id.txtPasswordNuevo)
+        buttonGuardar = findViewById(R.id.btn_Guardar)
 
         buttonGuardar?.setOnClickListener { nuevoPass() }
-
-        binding = FragmentNuevoPasswordBinding.bind(view)
 
     }
 
@@ -49,9 +34,9 @@ class NuevoPasswordFragment : Fragment() {
         val passwordN = editTextPasswordNuevo?.text.toString()
 
         if (validateCuenta(correo,password,passwordN)){
-            Toast.makeText(activity, "Nueva contraseña guardada", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Nueva contraseña guardada", Toast.LENGTH_LONG).show()
         }else{
-            Toast.makeText(activity, "Datos incorrectos", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_LONG).show()
         }
 
         Log.d("NuevoPasswordFragment","El email es: $correo")
@@ -78,10 +63,11 @@ class NuevoPasswordFragment : Fragment() {
             return false
         }
         if (!password.equals(passwordN)){
-            Toast.makeText(activity, "Tu contraseña no coincide", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Tu contraseña no coincide", Toast.LENGTH_LONG).show()
             return false
         }
         return true
     }
+
 
 }

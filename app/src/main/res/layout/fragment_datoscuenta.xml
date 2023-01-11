@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
-    tools:context=".view.DatosCuentaFragment">
+    tools:context=".ui.cuenta.DatosCuentaFragment">
 
     <ScrollView
         android:id="@+id/idScrollCuenta"
@@ -146,6 +146,16 @@
                 app:cornerRadius="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="524dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="315dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/comfortaabold"
+                android:text="CERRAR SESIÓN"
+                android:textSize="20dp"
+                app:cornerRadius="20dp"/>
 
         </LinearLayout>
 

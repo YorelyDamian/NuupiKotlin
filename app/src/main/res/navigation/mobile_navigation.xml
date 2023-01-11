@@ -30,16 +30,7 @@
     </fragment>
 
     <!--Cuenta-->
-    <fragment
-        android:id="@+id/nav_cuenta"
-        android:name="com.example.nuupikotlin.ui.cuenta.CuentaFragment"
-        android:label="@string/menu_cuenta"
-        tools:layout="@layout/fragment_cuenta" >
-        <action
-            android:id="@+id/action_nav_cuenta_to_nav_iniciarsesion"
-            app:destination="@id/nav_iniciarsesion"
-            app:popUpTo="@id/nav_cuenta"/>
-    </fragment>
+
 
     <fragment
         android:id="@+id/nav_buscador"
@@ -63,7 +54,7 @@
         android:label="@string/menu_notificaciones"
         tools:layout="@layout/fragment_notificaciones" />
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_iniciarsesion"
         android:name="com.example.nuupikotlin.ui.iniciarsesion.IniciarSesionFragment"
         android:label="@string/menu_iniciarSesion"
@@ -79,7 +70,7 @@
         <action
             android:id="@+id/action_nav_iniciarsesion_to_nav_DatosCuenta"
             app:destination="@id/nav_DatosCuenta" />
-    </fragment>
+    </fragment>-->
 
     <!--Fragmentes-->
     <fragment
@@ -142,24 +133,24 @@
             app:destination="@id/nav_Pago" />
     </fragment>
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_Registro"
         android:name="com.example.nuupikotlin.view.RegistroFragment"
         tools:layout="@layout/fragment_registro" >
         <action
             android:id="@+id/action_nav_Registro_to_nav_iniciarsesion"
             app:destination="@id/nav_iniciarsesion" />
-    </fragment>
+    </fragment>-->
 
     <fragment
         android:id="@+id/nav_Domicilio"
         android:name="com.example.nuupikotlin.view.DomicilioFragment"
         tools:layout="@layout/fragment_domicilio" />
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_Contrasenia"
         android:name="com.example.nuupikotlin.view.NuevoPasswordFragment"
-        tools:layout="@layout/fragment_nuevo_password" />
+        tools:layout="@layout/fragment_nuevo_password" />-->
 
     <fragment
         android:id="@+id/nav_misCompras"
@@ -183,11 +174,11 @@
 
     <fragment
         android:id="@+id/nav_DatosCuenta"
-        android:name="com.example.nuupikotlin.view.DatosCuentaFragment"
+        android:name="com.example.nuupikotlin.ui.cuenta.DatosCuentaFragment"
         tools:layout="@layout/fragment_datoscuenta" >
-        <action
+        <!--<action
             android:id="@+id/action_nav_DatosCuenta_to_nav_Contrasenia"
-            app:destination="@id/nav_Contrasenia" />
+            app:destination="@id/nav_Contrasenia" />-->
         <action
             android:id="@+id/action_nav_DatosCuenta_to_nav_Domicilio"
             app:destination="@id/nav_Domicilio" />
