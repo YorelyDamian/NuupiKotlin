@@ -1,5 +1,6 @@
 package com.example.nuupikotlin.models
 
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
 class User (
@@ -19,9 +20,16 @@ class User (
     @SerializedName("clienidpaypal") val clienidpaypal:String? = null,
     @SerializedName("pk_mercadopago") val pk_mercadopago:String? = null,
     @SerializedName("accessTokenMpago") val accessTokenMpago:String? = null,
+    @SerializedName("roles") val roles: ArrayList<Rol>?= null
+
 
 ){
     override fun toString(): String {
-        return "User(idUsuario='$idUsuario',psnombreUsuario='$psnombreUsuario', psapellido1Usuario='$psapellido1Usuario', psapellido2Usuario='$psapellido2Usuario', pstelefonoUsuario='$pstelefonoUsuario', psPemailUsu='$psPemailUsu', pscontraUsuario='$pscontraUsuario', psconfirmaContraUsuario='$psconfirmaContraUsuario',psfechaNacimiento='$psfechaNacimiento',fechaRegistroUsuario='$fechaRegistroUsuario',status='$status',rfcUsuario='$rfcUsuario'codeActive='$codeActive'clienidpaypal='$clienidpaypal'pk_mercadopago='$pk_mercadopago'accessTokenMpago='$accessTokenMpago')"
+        return "User(idUsuario='$idUsuario',psnombreUsuario='$psnombreUsuario', psapellido1Usuario='$psapellido1Usuario', psapellido2Usuario='$psapellido2Usuario', pstelefonoUsuario='$pstelefonoUsuario', psPemailUsu='$psPemailUsu', pscontraUsuario='$pscontraUsuario', psconfirmaContraUsuario='$psconfirmaContraUsuario', psfechaNacimiento='$psfechaNacimiento', fechaRegistroUsuario='$fechaRegistroUsuario', status='$status', rfcUsuario='$rfcUsuario', codeActive='$codeActive', clienidpaypal='$clienidpaypal', pk_mercadopago='$pk_mercadopago', accessTokenMpago='$accessTokenMpago', roles='$roles')"
     }
+
+    fun toJson(): String{
+        return Gson().toJson(this)
+    }
+
 }

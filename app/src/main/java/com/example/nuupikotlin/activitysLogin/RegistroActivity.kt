@@ -9,12 +9,12 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.nuupikotlin.DatePickerFragment
-import com.example.nuupikotlin.LoginActivity
-import com.example.nuupikotlin.R
+import com.example.nuupikotlin.*
 import com.example.nuupikotlin.models.ResponseHttp
 import com.example.nuupikotlin.models.User
 import com.example.nuupikotlin.providers.UsersProvider
+import com.example.nuupikotlin.utils.SharedPref
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,7 +51,6 @@ class RegistroActivity : AppCompatActivity() {
         val btnAceptar = findViewById<Button>(R.id.btn_Aceptar)
         btnAceptar.setOnClickListener {
             registro()
-            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         editTextNacimiento?.setOnClickListener{
@@ -95,6 +94,11 @@ class RegistroActivity : AppCompatActivity() {
             )
             usersProvider.register(user)?.enqueue(object: Callback<ResponseHttp> {
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
+                    if(response.body()?.inSuccess==true){
+                        saveUserInSession(response.body()?.data.toString())
+                        gotoImage()
+                    }
+
                     Toast.makeText(this@RegistroActivity,response.body()?.message, Toast.LENGTH_LONG).show()
                     Log.d(TAG, "Response:${response}")
                     Log.d(TAG,"Body:${response.body()}")
@@ -107,6 +111,24 @@ class RegistroActivity : AppCompatActivity() {
             })
         }
     }
+
+    //Vista que mostrara despues de iniciar sesion si no quiere agregar una imagen
+    private fun gotoImage(){
+        val i = Intent(this, SaveImageActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
+        startActivity(i)
+    }
+
+    //Metodo para guardar los datos del usuario
+    private fun saveUserInSession(data:String){
+
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+        val user = gson.fromJson(data, User::class.java)
+        sharedPref.save("user", user)
+
+    }
+
 
     fun String.isEmailValid(): Boolean{
         return !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()

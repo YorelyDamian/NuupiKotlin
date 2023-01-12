@@ -1,6 +1,8 @@
 package com.example.nuupikotlin
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,6 +12,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.nuupikotlin.activitysLogin.ContraseniaActivity
 import com.example.nuupikotlin.activitysLogin.RegistroActivity
+import com.example.nuupikotlin.administrador.AdminActivity
 import com.example.nuupikotlin.models.ResponseHttp
 import com.example.nuupikotlin.models.User
 import com.example.nuupikotlin.providers.UsersProvider
@@ -47,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         //Boton Cambiar Contraseña
         btnContrasenia?.setOnClickListener{gotoViewContrasenia()}
 
-        getUserFromSession()
+        getUserFromSession()//error aqui
     }
 
     //Metodo para dirijir a vista Registro
@@ -77,8 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
                     if(response.body()?.inSuccess == true){
 
-                        saveUserInSession(response.body()?.data.toString())//error aqui
-                        gotoClientHome()
+                        saveUserInSession(response.body()?.data.toString())
                         Toast.makeText(this@LoginActivity, response.body()?.message, Toast.LENGTH_LONG).show()
 
                     }
@@ -103,9 +105,24 @@ class LoginActivity : AppCompatActivity() {
         //Log.d("IniciarSesionFragment","El password es: $password")
     }
 
-    //Vista que mostrara despues de iniciar sesion
+    //Vista que mostrara despues de iniciar sesion si es un cliente
     private fun gotoClientHome(){
         val i = Intent(this, MainActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
+        startActivity(i)
+    }
+
+    //Vista que mostrara despues de iniciar sesion si es un admin
+    private fun gotoAdminHome(){
+        val i = Intent(this, AdminActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
+        startActivity(i) //error aqui
+    }
+
+    //Vista que mostrara si el usuario tiene dos roles
+    private fun gotoSelectRol(){
+        val i = Intent(this, SelectRolesActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
         startActivity(i)
     }
 
@@ -115,11 +132,17 @@ class LoginActivity : AppCompatActivity() {
         val sharedPref = SharedPref(this)
         val gson = Gson()
         val user = gson.fromJson(data, User::class.java)
-
         sharedPref.save("user", user)
+
+        if(user.roles?.size!! > 1){//En caso de que el usuario registrado tenga mas de un rol
+            gotoSelectRol()
+        }else{//En caso de que tenga un rol y sea cliente
+            gotoClientHome()
+        }
 
     }
 
+    //
     private fun getUserFromSession(){
         val sharedPref = SharedPref(this)
         val gson = Gson()
@@ -128,7 +151,23 @@ class LoginActivity : AppCompatActivity() {
             //si el usuario existe en sesion
             val user=gson.fromJson(sharedPref.getData("user"),User::class.java)
             //log.d(tag,"Usuario:$user")
-            gotoClientHome()
+
+            if(!sharedPref.getData("rol").isNullOrBlank()){
+
+                //Si el usuario seleccionao el rol
+                val rol = sharedPref.getData("rol")?.replace("\"","")
+
+                if(rol == "ADMIN"){
+                    gotoAdminHome() //error aqui
+                }
+                else if(rol == "CLIENTE"){
+                    gotoClientHome()
+                }
+            }
+            else{
+                gotoClientHome()
+            }
+            //gotoClientHome()
         }
     }
 
@@ -150,6 +189,5 @@ class LoginActivity : AppCompatActivity() {
         }
         return true
     }
-
 
 }

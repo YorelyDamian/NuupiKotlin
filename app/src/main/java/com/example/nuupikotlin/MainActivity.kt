@@ -1,6 +1,5 @@
 package com.example.nuupikotlin
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
@@ -80,6 +79,7 @@ class MainActivity : AppCompatActivity() {
     //Metodo para guardar datos de inicio de sesion
     private fun getUserFromSession(){
         //val sharedPref = SharedPref(this as Activity)
+        //val sharedPref = SharedPref(this)
         val gson = Gson()
 
         if(!sharedPref?.getData("user").isNullOrBlank()){
