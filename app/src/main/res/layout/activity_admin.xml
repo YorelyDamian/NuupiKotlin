@@ -12,7 +12,7 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logoinicial" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LISTA DE PEDIDOS"
@@ -22,7 +22,7 @@
         android:textSize="20dp"
         android:textColor="@color/black"
         android:layout_marginTop="200dp"
-        android:layout_gravity="center|top"/>
+        android:layout_gravity="center|top"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_Pedidos"

@@ -68,6 +68,13 @@ class SaveImageActivity : AppCompatActivity() {
         }
     }
 
+    //Vista que mostrara despues de iniciar sesion si no quiere agregar una imagen
+    private fun gotoClientHome(){
+        val i = Intent(this, MainActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
+        startActivity(i)
+    }
+
     //Metodo para guardar datos de inicio de sesion
     private fun getUserFromSession(){
         val gson = Gson()
@@ -75,13 +82,6 @@ class SaveImageActivity : AppCompatActivity() {
             //si el usuario existe en sesion
             user = gson.fromJson(sharedPref?.getData("user"), User::class.java)
         }
-    }
-
-    //Vista que mostrara despues de iniciar sesion si no quiere agregar una imagen
-    private fun gotoClientHome(){
-        val i = Intent(this, MainActivity::class.java)
-        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Eliminar el historial de pantallas
-        startActivity(i)
     }
 
     private val startImageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
