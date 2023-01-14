@@ -24,17 +24,29 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EntregadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DescriPedido"
+            android:exported="false" />
+        <activity
+            android:name=".PedidosEntregadosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PedidosNuevosActivity"
+            android:exported="false" />
+        <activity
             android:name=".SaveImageActivity"
             android:exported="false"
-            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar" />
         <activity
             android:name=".administrador.AdminActivity"
             android:exported="false"
-            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar" />
         <activity
             android:name=".SelectRolesActivity"
             android:exported="false"
-            android:theme="@style/Theme.NuupiKotlin.NoActionBar"/>
+            android:theme="@style/Theme.NuupiKotlin.NoActionBar" />
         <activity
             android:name=".activitysLogin.RegistroActivity"
             android:exported="false"

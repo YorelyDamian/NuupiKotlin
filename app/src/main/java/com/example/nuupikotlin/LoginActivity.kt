@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         //Boton Cambiar Contraseña
         btnContrasenia?.setOnClickListener{gotoViewContrasenia()}
 
-        getUserFromSession()//error aqui
+        getUserFromSession()
     }
 
     //Metodo para dirijir a vista Registro

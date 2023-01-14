@@ -12,24 +12,29 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logoinicial" />
 
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LISTA DE PEDIDOS"
-        android:textAlignment="center"
-        android:fontFamily="@font/comfortaaregular"
-        android:textStyle="bold"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_Pedidos"
+        android:layout_width="315dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/comfortaabold"
+        android:text="PEDIDOS NUEVOS"
         android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="200dp"
-        android:layout_gravity="center|top"/>-->
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_nuevos_foreground"
+        android:layout_marginTop="300dp"
+        android:layout_gravity="top|center"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_Pedidos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_Entregados"
+        android:layout_width="315dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/comfortaabold"
+        android:text="PEDIDOS ENTREGADOS"
+        android:textSize="20dp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_pedidos_foreground"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCerrarSesion"
